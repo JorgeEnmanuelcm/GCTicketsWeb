@@ -60,6 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdmPanel.aspx" />
+    <Content Include="App_Data\GCTicketsWebDB.mdf" />
+    <Content Include="App_Data\GCTicketsWebDB_log.ldf">
+      <DependentUpon>GCTicketsWebDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Bootstrap\bootstrap.min.css" />
     <Content Include="Bootstrap\font-awesome.min.css" />
     <Content Include="Bootstrap\freelancer.min.css" />
