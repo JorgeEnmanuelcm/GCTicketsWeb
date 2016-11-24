@@ -77,6 +77,7 @@
         <div class="col-md-6 col-xs-8">
             <asp:DropDownList ID="EventoDropDownList" runat="server" class="btn btn-default dropdown-toggle"></asp:DropDownList>
         </div>
+        <asp:Button ID="TicketButton" runat="server" CssClass="btn btn-info" Text="Get Tickets" OnClick="TicketButton_Click" />
     </div>
     <br />
     <br />

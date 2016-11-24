@@ -28,7 +28,7 @@
             <asp:Label ID="DesdeLabel" For="DesdeTextBox" runat="server" Font-Bold="True" Text="Desde:"></asp:Label>
         </div>
         <div class="col-md-6 col-xs-8">
-            <asp:TextBox ID="DesdeTextBox" runat="server" CssClass="form-control" MaxLength="12"></asp:TextBox>
+            <asp:TextBox ID="DesdeTextBox" runat="server" CssClass="form-control" type="date" MaxLength="12"></asp:TextBox>
         </div>
         <br />
         <br />
@@ -36,7 +36,7 @@
             <asp:Label ID="HastaLabel" For="HastaTextBox" runat="server" Font-Bold="True" Text="Hasta:"></asp:Label>
         </div>
         <div class="col-md-6 col-xs-8">
-            <asp:TextBox ID="HastaTextBox" runat="server" CssClass="form-control" MaxLength="12"></asp:TextBox>
+            <asp:TextBox ID="HastaTextBox" runat="server" CssClass="form-control" type="date" MaxLength="12"></asp:TextBox>
         </div>
     </div>
     <br />

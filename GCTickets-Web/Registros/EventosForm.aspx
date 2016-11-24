@@ -63,7 +63,7 @@
             <asp:Label ID="NombreEventoLabel" For="NombreEventoTexBox" runat="server" Font-Bold="True" Text="Nombre Evento: "></asp:Label>
         </div>
         <div class="col-md-6 col-xs-8">
-            <asp:TextBox ID="NombreEventoTextBox" runat="server" CssClass="form-control" placeholder="Nombre Evento" MaxLength="32"></asp:TextBox>
+            <asp:TextBox ID="NombreEventoTextBox" runat="server" CssClass="form-control" MaxLength="32"></asp:TextBox>
         </div>
     </div>
     <br />

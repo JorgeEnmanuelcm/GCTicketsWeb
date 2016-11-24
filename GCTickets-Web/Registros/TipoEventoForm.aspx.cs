@@ -24,27 +24,27 @@ namespace GCTickets_Web.Registros
             DescripcionTextBox.Text = string.Empty;
         }
 
-        private bool ObtenerDatos(TipoEventoClass TipoEvento)
+        private void ObtenerDatos(TipoEventoClass TipoEvento)
         {
-            bool Retorno = true;
+           // bool Retorno = true;
             int id = Utilities.intConvertir(TipoEventoIdTextBox.Text);
-            if (id > 0)
-            {
+         //   if (id > 0)
+         //   {
                 TipoEvento.TipoEventoId = id;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (DescripcionTextBox.Text.Length > 0)
-            {
+          //  }
+          //  else
+         //   {
+           //     Retorno = false;
+          //  }
+         //   if (DescripcionTextBox.Text.Length > 0)
+         //   {
                 TipoEvento.Descripcion = DescripcionTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            return Retorno;
+         //   }
+         //   else
+         //   {
+         //       Retorno = false;
+          //  }
+           // return Retorno;
         }
 
         private void DevolverDatos(TipoEventoClass TipoEvento)

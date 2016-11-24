@@ -19,6 +19,8 @@ namespace GCTickets_Web.Registros
                 CargarDropDownList();
                 CargarGridview();
                 EliminarButton.Visible = false;
+                AgregarButton.Visible = false;
+                TicketDropDownList.Visible = false;
                 VentasClass Venta = new VentasClass();
                 int Id = 0;
                 if (Request.QueryString["ID"] != null)
@@ -66,9 +68,12 @@ namespace GCTickets_Web.Registros
             EventoDropDownList.DataTextField = "NombreEvento";
             EventoDropDownList.DataValueField = "EventoId";
             EventoDropDownList.DataBind();
+        }
 
+        private void CargarTickets()
+        {
             EventosDetalleClass Ticket = new EventosDetalleClass();
-            TicketDropDownList.DataSource = Ticket.Listado(" * ", "1=1", "");
+            TicketDropDownList.DataSource = Ticket.Listado("PrecioTicket, DescTicket", "EventoId='" + EventoDropDownList.SelectedValue + "'", "");
             TicketDropDownList.DataTextField = "DescTicket";
             TicketDropDownList.DataValueField = "PrecioTicket";
             TicketDropDownList.DataBind();
@@ -253,6 +258,13 @@ namespace GCTickets_Web.Registros
             {
                 Utilities.ShowToastr(this, "error", "Mensaje", "error");
             }
+        }
+
+        protected void TicketButton_Click(object sender, EventArgs e)
+        {
+            AgregarButton.Visible = true;
+            TicketDropDownList.Visible = true;
+            CargarTickets();
         }
     }
 }

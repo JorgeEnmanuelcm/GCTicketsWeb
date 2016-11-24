@@ -18,20 +18,28 @@ namespace GCTickets_Web.Consultas
         private string Buscar(VentasClass Venta)
         {
             string filtro = "";
-            if (string.IsNullOrWhiteSpace(BuscarTextBox.Text))
+            if (FechaCheckBox.Checked.Equals(false))
             {
-                filtro = "1=1";
-            }
-            else
-            {
-                if (CamposDropDownList.SelectedIndex == 0)
+                if (string.IsNullOrWhiteSpace(BuscarTextBox.Text))
                 {
-                    filtro = "VentaId = " + BuscarTextBox.Text;
+                    filtro = "1=1";
                 }
                 else
                 {
-                    filtro = CamposDropDownList.SelectedValue + " like '%" + BuscarTextBox.Text + "%'";
+                    if (CamposDropDownList.SelectedIndex == 0)
+                    {
+                        filtro = "VentaId = " + BuscarTextBox.Text;
+                    }
+                    else
+                    {
+                        filtro = CamposDropDownList.SelectedValue + " like '%" + BuscarTextBox.Text + "%'";
+                    }
                 }
+            }
+            else
+            {
+                filtro = "Fecha between '" + DesdeTextBox.Text + "' and '" + HastaTextBox.Text + "'";
+
             }
             ConsultaGridView.DataSource = Venta.Listado("*", filtro, "");
             ConsultaGridView.DataBind();

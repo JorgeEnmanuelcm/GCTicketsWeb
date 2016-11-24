@@ -18,7 +18,7 @@ namespace GCTickets_Web.Consultas
         private string Buscar(EventosClass Evento)
         {
             string filtro = "";
-            if (!FechaCheckBox.Checked)
+            if (FechaCheckBox.Checked.Equals(false))
             {
                 if (string.IsNullOrWhiteSpace(BuscarTextBox.Text))
                 {
@@ -28,22 +28,21 @@ namespace GCTickets_Web.Consultas
                 {
                     if (CamposDropDownList.SelectedIndex == 0)
                     {
-                        filtro = "VentaId = " + BuscarTextBox.Text;
+                        filtro = "EventoId = " + BuscarTextBox.Text;
                     }
                     else
                     {
                         filtro = CamposDropDownList.SelectedValue + " like '%" + BuscarTextBox.Text + "%'";
                     }
                 }
-                ConsultaGridView.DataSource = Evento.Listado("*", filtro, "");
-                ConsultaGridView.DataBind();
             }
             else
             {
-                filtro = "Fecha between '" + DesdeTextBox.Text + "' and '" + HastaTextBox.Text + "'";
-                ConsultaGridView.DataSource = Evento.Listado("*", filtro, "");
-                ConsultaGridView.DataBind();
+                filtro = "FechaEvento between '" + DesdeTextBox.Text + "' and '" + HastaTextBox.Text + "'";
+                
             }
+            ConsultaGridView.DataSource = Evento.Listado("*", filtro, "");
+            ConsultaGridView.DataBind();
             return filtro;
         }
 

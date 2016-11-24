@@ -38,6 +38,8 @@
         </div>
         <div class="col-md-6 col-xs-8">
             <asp:TextBox ID="DescripcionTextBox" runat="server" CssClass="form-control" placeholder="Descripcion" MaxLength="26"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Llenar campos vacios!" ControlToValidate="DescripcionTextBox" ValidationGroup="Group">*</asp:RequiredFieldValidator>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="LLene este campo" Text="*" ValidationGroup="Group" Display="Dynamic" ControlToValidate="DescripcionTextBox">*</asp:RequiredFieldValidator>--%>
         </div>
     </div>
     <br />
@@ -48,8 +50,10 @@
     <div class="panel-footer">
         <div class="text-center">
             <div class="form-group" style="display: inline-block">
+<%--                <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderStyle="Dotted" HeaderText="Atencion!" ValidationGroup="Group" />--%>
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" ValidationGroup="Group"/>
                 <asp:Button Text="Nuevo" class="btn btn-warning btn-sm" runat="server" ID="NuevoButton" OnClick="NuevoButton_Click" />
-                <asp:Button Text="Guardar" class="btn btn-success btn-sm" runat="server" ID="GuardarButton" OnClick="GuardarButton_Click" />
+                <asp:Button Text="Guardar" ValidationGroup="Group" class="btn btn-success btn-sm" runat="server" ID="GuardarButton" OnClick="GuardarButton_Click" />
                 <asp:Button Text="Eliminar" class="btn btn-danger btn-sm" runat="server" ID="EliminarButton" OnClick="EliminarButton_Click" />
             </div>
         </div>
