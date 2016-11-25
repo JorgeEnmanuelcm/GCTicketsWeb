@@ -23,25 +23,5 @@ namespace BLL
             int.TryParse(caracteres, out auxiliar);
             return auxiliar;
         }
-
-        public static bool ValidarTelefono(string Telefono)
-        {
-            return Regex.IsMatch(Telefono, @"^[+-]?\d+(\.\d+)?$");
-        }
-
-        public static bool ValidarEmail(string EmailAddress)
-        {
-            return Regex.IsMatch(EmailAddress, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
-        }
-
-        public static bool ValidarSoloNumero(string Numero)
-        {
-            return Regex.IsMatch(Numero, @"[0-9]{1,9}(\.[0-9]{0,2})?$");
-        }
-
-        public static bool ValidarNomUsuario(string NomUsuario)
-        {
-            return Regex.IsMatch(NomUsuario, @"[a-zA-ZñÑ\s]{2,50}");
-        }
     }
 }

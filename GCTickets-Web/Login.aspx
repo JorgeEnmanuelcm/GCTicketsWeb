@@ -32,7 +32,7 @@
                                         <asp:TextBox ID="UsuarioTextBox" runat="server" TabIndex="1" class="form-control" placeholder="Username" value="" MaxLength="12"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
-                                        <asp:TextBox ID="ContraseniaTextBox" runat="server" TabIndex="2" class="form-control" placeholder="Password" MaxLength="32"></asp:TextBox>
+                                        <asp:TextBox ID="ContraseniaTextBox" runat="server" TabIndex="2" class="form-control" placeholder="Password" TextMode="Password" MaxLength="32"></asp:TextBox>
                                     </div>
                                     <div class="form-group text-center">
                                         <asp:CheckBox ID="RecordarCheckBox" runat="server" TabIndex="3" class="" />

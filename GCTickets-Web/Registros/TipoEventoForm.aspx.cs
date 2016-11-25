@@ -26,25 +26,8 @@ namespace GCTickets_Web.Registros
 
         private void ObtenerDatos(TipoEventoClass TipoEvento)
         {
-           // bool Retorno = true;
-            int id = Utilities.intConvertir(TipoEventoIdTextBox.Text);
-         //   if (id > 0)
-         //   {
-                TipoEvento.TipoEventoId = id;
-          //  }
-          //  else
-         //   {
-           //     Retorno = false;
-          //  }
-         //   if (DescripcionTextBox.Text.Length > 0)
-         //   {
-                TipoEvento.Descripcion = DescripcionTextBox.Text;
-         //   }
-         //   else
-         //   {
-         //       Retorno = false;
-          //  }
-           // return Retorno;
+            TipoEvento.TipoEventoId = Utilities.intConvertir(TipoEventoIdTextBox.Text);
+            TipoEvento.Descripcion = DescripcionTextBox.Text;
         }
 
         private void DevolverDatos(TipoEventoClass TipoEvento)
@@ -71,7 +54,7 @@ namespace GCTickets_Web.Registros
                 }
                 else
                 {
-                    Utilities.ShowToastr(this, "error", "Mensaje", "error");
+                    Utilities.ShowToastr(this, "Ese Id no existe!", "Mensaje", "info");
                 }
             }
         }

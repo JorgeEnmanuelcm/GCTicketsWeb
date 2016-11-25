@@ -30,83 +30,17 @@ namespace GCTickets_Web.Registros
             ContraseniaTextBox.Text = string.Empty;
         }
 
-        private bool ObtenerDatos(UsuariosClass Usuario)
+        private void ObtenerDatos(UsuariosClass Usuario)
         {
-            bool Retorno = true;
-            int id = Utilities.intConvertir(UsuarioIdTextBox.Text);
-            if (id > 0)
-            {
-                Usuario.UsuarioId = id;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (NombresTextBox.Text.Length > 0)
-            {
-                Usuario.Nombres = NombresTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (ApellidosTextBox.Text.Length > 0)
-            {
-                Usuario.Apellidos = ApellidosTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (TelefonoTextBox.Text.Length > 0)
-            {
-                Usuario.Telefono = TelefonoTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (EmailTextBox.Text.Length > 0)
-            {
-                Usuario.Email = EmailTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (DireccionTextBox.Text.Length > 0)
-            {
-                Usuario.Direccion = DireccionTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (NombreUsuarioTextBox.Text.Length > 0)
-            {
-                Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (ContraseniaTextBox.Text.Length > 0)
-            {
-                Usuario.Contrasenia = ContraseniaTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (id > 0)
-            {
-                Usuario.TipoUsuario = 0;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            return Retorno;
+            Usuario.UsuarioId = Utilities.intConvertir(UsuarioIdTextBox.Text);
+            Usuario.Nombres = NombresTextBox.Text;
+            Usuario.Apellidos = ApellidosTextBox.Text;
+            Usuario.Telefono = TelefonoTextBox.Text;
+            Usuario.Email = EmailTextBox.Text;
+            Usuario.Direccion = DireccionTextBox.Text;
+            Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
+            Usuario.Contrasenia = ContraseniaTextBox.Text;
+            Usuario.TipoUsuario = 1;
         }
 
         public void DevolverDatos(UsuariosClass Usuario)
@@ -138,7 +72,7 @@ namespace GCTickets_Web.Registros
                 }
                 else
                 {
-                    Utilities.ShowToastr(this, "error", "error", "error");
+                    Utilities.ShowToastr(this, "Ese Id no existe!", "Mensaje", "info");
                 }
             }
         }
@@ -160,41 +94,32 @@ namespace GCTickets_Web.Registros
             }
             else
             {
-                if (ContraseniaTextBox.Text.Trim() != ConfContraseniaTexBox.Text.Trim())
+                if (string.IsNullOrWhiteSpace(UsuarioIdTextBox.Text))
                 {
-                    Utilities.ShowToastr(this, "error", "Contraseñas no coindicen!", "error");
-                    ContraseniaTextBox.Text = string.Empty;
-                    ConfContraseniaTexBox.Text = string.Empty;
-                }
-                else
-                {
-                    if (string.IsNullOrWhiteSpace(UsuarioIdTextBox.Text))
+                    ObtenerDatos(Usuario);
+                    if (Usuario.Insertar())
                     {
-                        ObtenerDatos(Usuario);
-                        if (Usuario.Insertar())
-                        {
-                            Limpiar();
-                            Utilities.ShowToastr(this, "bien", "Se guardo con exito!", "success");
-                        }
-                        else
-                        {
-                            Utilities.ShowToastr(this, "error", "Mensaje", "error");
-                        }
+                        Limpiar();
+                        Utilities.ShowToastr(this, "bien", "Se guardo con exito!", "success");
                     }
-                    if (UsuarioIdTextBox.Text.Length > 0)
+                    else
                     {
-                        ObtenerDatos(Usuario);
-                        if (Usuario.Editar())
-                        {
-                            Limpiar();
-                            EliminarButton.Visible = false;
-                            GuardarButton.Text = "Guardar";
-                            Utilities.ShowToastr(this, "bien", "Se modifico con exito!", "success");
-                        }
-                        else
-                        {
-                            Utilities.ShowToastr(this, "error", "error", "error");
-                        }
+                        Utilities.ShowToastr(this, "error", "Mensaje", "error");
+                    }
+                }
+                if (UsuarioIdTextBox.Text.Length > 0)
+                {
+                    ObtenerDatos(Usuario);
+                    if (Usuario.Editar())
+                    {
+                        Limpiar();
+                        EliminarButton.Visible = false;
+                        GuardarButton.Text = "Guardar";
+                        Utilities.ShowToastr(this, "bien", "Se modifico con exito!", "success");
+                    }
+                    else
+                    {
+                        Utilities.ShowToastr(this, "error", "error", "error");
                     }
                 }
             }
