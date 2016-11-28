@@ -18,6 +18,7 @@ namespace BLL
         public string NombreUsuario { get; set; }
         public string Contrasenia { get; set; }
         public int TipoUsuario { get; set; }
+        public static int Id = 0; 
 
         public UsuariosClass()
         {
@@ -140,7 +141,44 @@ namespace BLL
             ConexionDB Conexion = new ConexionDB();
             return Conexion.ObtenerDatos(string.Format("select * from Usuarios where " + Condicion));
         }
+
+        public bool IniciarSesion()
+        {
+            ConexionDB con = new ConexionDB();
+            DataTable dt = new DataTable();
+            bool retorno = false;
+            dt = con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' and Contrasenia = '{1}' ", this.NombreUsuario, this.Contrasenia));
+
+            if (dt.Rows.Count > 0)
+            {
+                Id = (int)dt.Rows[0]["UsuarioId"];
+                retorno = true;
+            }
+            else
+            {
+                retorno = false;
+            }
+            return retorno;
+        }
+
+        public bool Comprobar()
+        {
+            ConexionDB con = new ConexionDB();
+            DataTable dt = new DataTable();
+            bool retorno = false;
+            dt = con.ObtenerDatos(string.Format("select * from Usuarios where NombreUsuario = '{0}' ", this.NombreUsuario));
+            if (dt.Rows.Count > 0)
+            {
+                Id = (int)dt.Rows[0]["UsuarioId"];
+                this.TipoUsuario = (int)dt.Rows[0]["TipoUsuario"];
+                retorno = true;
+            }
+            else
+            {
+                retorno = false;
+            }
+
+            return retorno;
+        }
     }
-
-
 }

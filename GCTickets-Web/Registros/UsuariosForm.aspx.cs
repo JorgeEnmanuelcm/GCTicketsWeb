@@ -40,7 +40,7 @@ namespace GCTickets_Web.Registros
             Usuario.Direccion = DireccionTextBox.Text;
             Usuario.NombreUsuario = NombreUsuarioTextBox.Text;
             Usuario.Contrasenia = ContraseniaTextBox.Text;
-            Usuario.TipoUsuario = 1;
+            Usuario.TipoUsuario = 2;
         }
 
         public void DevolverDatos(UsuariosClass Usuario)
