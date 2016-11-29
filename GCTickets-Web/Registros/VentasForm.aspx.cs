@@ -16,6 +16,7 @@ namespace GCTickets_Web.Registros
             if (!IsPostBack)
             {
                 FechaTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                TextBox1.Text = Context.User.Identity.Name; 
                 CargarDropDownList();
                 CargarGridview();
                 EliminarButton.Visible = false;
@@ -79,63 +80,17 @@ namespace GCTickets_Web.Registros
             TicketDropDownList.DataBind();
         }
 
-        private bool ObtenerDatos(VentasClass Venta)
+        private void ObtenerDatos(VentasClass Venta)
         {
-            bool Retorno = true;
-            int Usuario = Utilities.intConvertir(UsuarioIdDropDownList.SelectedValue);
-            int id = Utilities.intConvertir(VentaIdTextBox.Text);
-            if (id > 0)
-            {
-                Venta.VentaId = id;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (Usuario > 0)
-            {
-                Venta.UsuarioId = Usuario;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (FechaTextBox.Text.Length > 0)
-            {
+                Venta.VentaId = Utilities.intConvertir(VentaIdTextBox.Text);
+                Venta.UsuarioId = Utilities.intConvertir(UsuarioIdDropDownList.SelectedValue);
                 Venta.Fecha = FechaTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (DescripcionTextBox.Text.Length > 0)
-            {
                 Venta.Descripcion = DescripcionTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (TotalTextBox.Text.Length > 0)
-            {
                 Venta.Total = Utilities.intConvertir(TotalTextBox.Text);
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (VentasGridView.Rows.Count > 0)
-            {
                 foreach (GridViewRow var in VentasGridView.Rows)
                 {
                     Venta.AgregarVenta(Convert.ToInt32(var.Cells[0].Text), Convert.ToInt32(var.Cells[1].Text), Convert.ToInt32(var.Cells[2].Text));
-                }
-            }
-            else
-            {
-                Retorno = false;
-            }
-            return Retorno;
+                }           
         }
 
         public void DevolverDatos(VentasClass Venta)
@@ -209,6 +164,8 @@ namespace GCTickets_Web.Registros
                 if (Venta.Insertar())
                 {
                     Limpiar();
+                    AgregarButton.Visible = false;
+                    TicketDropDownList.Visible = false;
                     Utilities.ShowToastr(this, "bien", "Se guardo con exito!", "success");
                 }
                 else

@@ -65,64 +65,18 @@ namespace GCTickets_Web.Registros
             TipoEventoIdDropDownList.DataBind();
         }
 
-        private bool ObtenerDatos(EventosClass Evento)
+        private void ObtenerDatos(EventosClass Evento)
         {
-            bool Retorno = true;
-            int id = Utilities.intConvertir(EventoIdTextBox.Text);
-            int tipoEventoid = Utilities.intConvertir(TipoEventoIdDropDownList.SelectedValue);
-            if (id > 0)
-            {
-                Evento.EventoId = id;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (tipoEventoid > 0)
-            {
-                Evento.TipoEventoId = tipoEventoid;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (NombreEventoTextBox.Text.Length > 0)
-            {
+                Evento.EventoId = Utilities.intConvertir(EventoIdTextBox.Text);
+                Evento.TipoEventoId = Utilities.intConvertir(TipoEventoIdDropDownList.SelectedValue);
                 Evento.NombreEvento = NombreEventoTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (FechaEventoTextBox.Text.Length > 0)
-            {
                 Evento.FechaEvento = FechaEventoTextBox.Text;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (LugarEventoTextBox.Text.Length > 0)
-            {
                 Evento.LugarEvento = LugarEventoTextBox.Text;
                 Evento.Imagen = Imagen.ImageUrl;
-            }
-            else
-            {
-                Retorno = false;
-            }
-            if (EventosGridView.Rows.Count > 0)
-            {
                 foreach (GridViewRow var in EventosGridView.Rows)
                 {
                     Evento.AgregarTickets(var.Cells[0].Text, Convert.ToInt32(var.Cells[1].Text), Convert.ToInt32(var.Cells[2].Text));
-                }
-            }
-            else
-            {
-                Retorno = false;
-            }
-            return Retorno;
+                }           
         }
 
         public void DevolverDatos(EventosClass Evento)

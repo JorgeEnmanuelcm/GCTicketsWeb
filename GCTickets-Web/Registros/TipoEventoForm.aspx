@@ -52,7 +52,6 @@
     <div class="panel-footer">
         <div class="text-center">
             <div class="form-group" style="display: inline-block">
-                <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Atencion! Debe rebizar los campos con mensajes" ValidationGroup="A" ForeColor="Red" />
                 <asp:Button Text="Nuevo" class="btn btn-warning btn-sm" runat="server" ID="NuevoButton" OnClick="NuevoButton_Click" />
                 <asp:Button Text="Guardar" ValidationGroup="A" class="btn btn-success btn-sm" runat="server" ID="GuardarButton" OnClick="GuardarButton_Click" />
                 <asp:Button Text="Eliminar" class="btn btn-danger btn-sm" runat="server" ID="EliminarButton" OnClick="EliminarButton_Click" />

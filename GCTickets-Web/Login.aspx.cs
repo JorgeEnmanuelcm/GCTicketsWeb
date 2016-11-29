@@ -46,6 +46,11 @@ namespace GCTickets_Web
             }
 
         }
+
+        protected void UsuarioButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Registros/UsuariosForm.aspx");
+        }
     }
 }
 
