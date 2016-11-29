@@ -67,22 +67,13 @@ namespace GCTickets_Web.Registros {
         protected global::System.Web.UI.WebControls.Label UsuarioIdLabel;
         
         /// <summary>
-        /// UsuarioIdDropDownList control.
+        /// UsuarioTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList UsuarioIdDropDownList;
-        
-        /// <summary>
-        /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox UsuarioTextBox;
         
         /// <summary>
         /// FechaLabel control.

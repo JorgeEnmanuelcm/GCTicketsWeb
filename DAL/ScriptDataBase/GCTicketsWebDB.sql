@@ -38,7 +38,7 @@ PrecioTicket int
 
 create table Ventas(
 VentaId int primary key identity(1,1),
-UsuarioId int,
+UsuarioId varchar(12),
 Fecha varchar(14),
 Descripcion varchar(24),
 Total int

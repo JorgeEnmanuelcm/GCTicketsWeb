@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EventosCForm.aspx.cs" Inherits="GCTickets_Web.Consultas.EventosCForm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <br />
+    <br />
     <br />
     <br />
     <br />
@@ -22,9 +23,9 @@
     <div class="form-group">
         <div class="col-md-12">
             <asp:Label ID="FechaLabel" For="FechaCheckBox" runat="server" Font-Bold="True" Text="Filtro por Fechas:"></asp:Label>
-        <asp:CheckBox ID="FechaCheckBox" runat="server" class="input-sm" />
+            <asp:CheckBox ID="FechaCheckBox" runat="server" class="input-sm" />
         </div>
-         <div class="col-md-12">
+        <div class="col-md-12">
             <asp:Label ID="DesdeLabel" For="DesdeTextBox" runat="server" Font-Bold="True" Text="Desde:"></asp:Label>
         </div>
         <div class="col-md-6 col-xs-8">
@@ -76,6 +77,25 @@
             </asp:GridView>
         </div>
     </div>
+    <br />
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <asp:Label ID="TicketsLabel" For="BuscarTexBox" runat="server" Font-Bold="True" Text="Estado de los Tickets:"></asp:Label>
+            <asp:Button ID="TicketsButton" runat="server" CssClass="btn btn-info" Text="Buscar" OnClick="TicketsButton_Click" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <div class="form-group">
+        <div class="table table-responsive col-md-12">
+            <asp:GridView ID="TicketsGridView" runat="server" class="table table-bordered table-hover table-striped table-responsive" AutoGenerateColumns="true"></asp:GridView>
+        </div>
+    </div>
+
     <br />
     <br />
     <br />

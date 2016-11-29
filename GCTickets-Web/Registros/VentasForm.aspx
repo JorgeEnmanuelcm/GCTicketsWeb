@@ -39,8 +39,8 @@
             <asp:Label ID="UsuarioIdLabel" For="UsuarioIdTexBox" runat="server" Font-Bold="True" Text="Usuario Id:"></asp:Label>
         </div>
         <div class="col-md-6 col-xs-8">
-            <asp:DropDownList ID="UsuarioIdDropDownList" runat="server" class="btn btn-default dropdown-toggle"></asp:DropDownList>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <%--<asp:DropDownList ID="UsuarioIdDropDownList" runat="server" class="btn btn-default dropdown-toggle"></asp:DropDownList>--%>
+            <asp:TextBox ID="UsuarioTextBox" runat="server" CssClass="form-control" placeholder="Fecha" ReadOnly="True"></asp:TextBox>
         </div>
     </div>
     <br />

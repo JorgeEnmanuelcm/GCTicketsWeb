@@ -16,7 +16,7 @@ namespace GCTickets_Web.Registros
             if (!IsPostBack)
             {
                 FechaTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                TextBox1.Text = Context.User.Identity.Name; 
+                UsuarioTextBox.Text = Context.User.Identity.Name;
                 CargarDropDownList();
                 CargarGridview();
                 EliminarButton.Visible = false;
@@ -58,12 +58,6 @@ namespace GCTickets_Web.Registros
 
         private void CargarDropDownList()
         {
-            UsuariosClass Usuario = new UsuariosClass();
-            UsuarioIdDropDownList.DataSource = Usuario.Listado(" * ", "1=1", "");
-            UsuarioIdDropDownList.DataTextField = "NombreUsuario";
-            UsuarioIdDropDownList.DataValueField = "UsuarioId";
-            UsuarioIdDropDownList.DataBind();
-
             EventosClass Evento = new EventosClass();
             EventoDropDownList.DataSource = Evento.Listado(" * ", "1=1", "");
             EventoDropDownList.DataTextField = "NombreEvento";
@@ -82,22 +76,22 @@ namespace GCTickets_Web.Registros
 
         private void ObtenerDatos(VentasClass Venta)
         {
-                Venta.VentaId = Utilities.intConvertir(VentaIdTextBox.Text);
-                Venta.UsuarioId = Utilities.intConvertir(UsuarioIdDropDownList.SelectedValue);
-                Venta.Fecha = FechaTextBox.Text;
-                Venta.Descripcion = DescripcionTextBox.Text;
-                Venta.Total = Utilities.intConvertir(TotalTextBox.Text);
-                foreach (GridViewRow var in VentasGridView.Rows)
-                {
-                    Venta.AgregarVenta(Convert.ToInt32(var.Cells[0].Text), Convert.ToInt32(var.Cells[1].Text), Convert.ToInt32(var.Cells[2].Text));
-                }           
+            Venta.VentaId = Utilities.intConvertir(VentaIdTextBox.Text);
+            Venta.UsuarioId = UsuarioTextBox.Text;
+            Venta.Fecha = FechaTextBox.Text;
+            Venta.Descripcion = DescripcionTextBox.Text;
+            Venta.Total = Utilities.intConvertir(TotalTextBox.Text);
+            foreach (GridViewRow var in VentasGridView.Rows)
+            {
+                Venta.AgregarVenta(Convert.ToInt32(var.Cells[0].Text), Convert.ToInt32(var.Cells[1].Text), Convert.ToInt32(var.Cells[2].Text));
+            }
         }
 
         public void DevolverDatos(VentasClass Venta)
         {
             DataTable dt = new DataTable();
             VentaIdTextBox.Text = Venta.VentaId.ToString();
-            UsuarioIdDropDownList.SelectedValue = Venta.UsuarioId.ToString();
+            UsuarioTextBox.Text = Venta.UsuarioId.ToString();
             FechaTextBox.Text = Venta.Fecha.ToString();
             DescripcionTextBox.Text = Venta.Descripcion.ToString();
             TotalTextBox.Text = Venta.Total.ToString();

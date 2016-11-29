@@ -81,7 +81,7 @@
                             <asp:LinkButton ID="LoginLinkButton" runat="server" OnClick="LoginLinkButton_Click">Login</asp:LinkButton>
                         </li>
                         <li class="#page-scroll" id="UsuarioLi" runat="server">
-                            <asp:Label ID="UsuarioLabel" runat="server" Text="Label" ForeColor="White"></asp:Label>
+                            <asp:Label ID="UsuarioLabel" runat="server" Text="Label" ForeColor="pink"></asp:Label>
                         </li>
                         <li class="#page-scroll" id="LogoutLi" runat="server">
                             <asp:LinkButton ID="LogoutLinkButton" runat="server" OnClick="LogoutLinkButton_Click">Logout</asp:LinkButton>

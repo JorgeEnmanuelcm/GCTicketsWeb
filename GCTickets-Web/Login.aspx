@@ -36,7 +36,7 @@
                                     <div class="form-group">
                                         <asp:TextBox ID="ContraseniaTextBox" runat="server" TabIndex="2" class="form-control" placeholder="Password" TextMode="Password" MaxLength="32"></asp:TextBox>
                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Campo requerido!" ValidationGroup="A" ControlToValidate="ContraseniaTextBox" ForeColor="Red"></asp:RequiredFieldValidator>                                      
-                                        <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="ContraseniaTextBox" ErrorMessage="Contrasenia debe tener numeros y letra mayuscula!" ForeColor="Red" ValidationExpression="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" ValidationGroup="A"></asp:RegularExpressionValidator>--%>
+                                       <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="ContraseniaTextBox" ErrorMessage="Contrasenia debe tener numeros y letra mayuscula!" ForeColor="Red" ValidationExpression="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" ValidationGroup="A"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="form-group text-center">
                                         <asp:CheckBox ID="RecordarCheckBox" runat="server" TabIndex="3" class="" />
@@ -45,8 +45,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <asp:Button ID="LoginButton" runat="server" TabIndex="4" class="form-control btn btn-login" Text="Iniciar Sesion" ValidationGroup="A" OnClick="LoginButton_Click" />
-                                                <asp:Button ID="UsuarioButton" runat="server" TabIndex="5" class="form-control btn btn-login" Text="Registrar" OnClick="UsuarioButton_Click"/>
+                                                <asp:Button ID="LoginButton" runat="server" TabIndex="4" class="form-control btn btn-login" Text="Iniciar Sesion" ValidationGroup="A" OnClick="LoginButton_Click" />                                            
                                             </div>
                                         </div>
                                     </div>

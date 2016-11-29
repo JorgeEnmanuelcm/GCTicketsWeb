@@ -39,7 +39,7 @@ namespace GCTickets_Web.Consultas
             else
             {
                 filtro = "FechaEvento between '" + DesdeTextBox.Text + "' and '" + HastaTextBox.Text + "'";
-                
+
             }
             ConsultaGridView.DataSource = Evento.Listado("*", filtro, "");
             ConsultaGridView.DataBind();
@@ -50,6 +50,15 @@ namespace GCTickets_Web.Consultas
         {
             EventosClass Evento = new EventosClass();
             Buscar(Evento);
+        }
+
+        protected void TicketsButton_Click(object sender, EventArgs e)
+        {
+            string Condicion = "";
+            EventosDetalleClass Tickets = new EventosDetalleClass();
+            Condicion = "1=1";
+            TicketsGridView.DataSource = Tickets.Listado("EventoId,DescTicket,CantDisponible,PrecioTicket", Condicion, "");
+            TicketsGridView.DataBind();
         }
     }
 }

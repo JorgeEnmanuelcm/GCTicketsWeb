@@ -10,7 +10,7 @@ namespace BLL
     public class VentasClass : ClaseMaestra
     {
         public int VentaId { get; set; }
-        public int UsuarioId { get; set; }
+        public string UsuarioId { get; set; }
         public string Fecha { get; set; }
         public string Descripcion { get; set; }
         public int Total { get; set; }
@@ -19,7 +19,7 @@ namespace BLL
         public VentasClass()
         {
             this.VentaId = 0;
-            this.UsuarioId = 0;
+            this.UsuarioId = "";
             this.Fecha = "";
             this.Descripcion = "";
             this.Total = 0;
@@ -43,7 +43,7 @@ namespace BLL
             object Identity;
             try
             {
-                Identity = Conexion.ObtenerValor(String.Format("Insert Into Ventas(UsuarioId, Fecha, Descripcion, Total) values({0}, '{1}', '{2}', {3}) select SCOPE_IDENTITY()", this.UsuarioId, this.Fecha, this.Descripcion, this.Total));
+                Identity = Conexion.ObtenerValor(String.Format("Insert Into Ventas(UsuarioId, Fecha, Descripcion, Total) values('{0}', '{1}', '{2}', {3}) select SCOPE_IDENTITY()", this.UsuarioId, this.Fecha, this.Descripcion, this.Total));
                 Retorno = Utilities.intConvertir(Identity.ToString());
                 this.VentaId = Retorno;
                 if (Retorno > 0)
@@ -68,7 +68,7 @@ namespace BLL
             bool Retorno = false;
             try
             {
-                Retorno = Conexion.Ejecutar(String.Format("Update Ventas set UsuarioId={0}, Fecha='{1}', Descripcion='{2}', Total={3} where VentaId= {4}", this.UsuarioId, this.Fecha, this.Descripcion, this.Total, this.VentaId));
+                Retorno = Conexion.Ejecutar(String.Format("Update Ventas set UsuarioId='{0}', Fecha='{1}', Descripcion='{2}', Total={3} where VentaId= {4}", this.UsuarioId, this.Fecha, this.Descripcion, this.Total, this.VentaId));
                 if (Retorno)
                 {
                     Conexion.Ejecutar(String.Format("Delete from VentasDetalle Where VentaId= {0}", this.VentaId));
@@ -111,7 +111,7 @@ namespace BLL
                 if (dt.Rows.Count > 0)
                 {
                     this.VentaId = (int)dt.Rows[0]["VentaId"];
-                    this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
+                    this.UsuarioId = dt.Rows[0]["UsuarioId"].ToString();
                     this.Fecha = dt.Rows[0]["Fecha"].ToString();
                     this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
                     this.Total = (int)dt.Rows[0]["Total"];
