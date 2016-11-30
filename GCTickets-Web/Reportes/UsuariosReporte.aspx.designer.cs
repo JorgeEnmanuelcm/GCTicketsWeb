@@ -10,7 +10,7 @@
 namespace GCTickets_Web.Reportes {
     
     
-    public partial class VentasReporte {
+    public partial class UsuariosReporte {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -22,12 +22,12 @@ namespace GCTickets_Web.Reportes {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// VentasReportViewer control.
+        /// UsuariosReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer VentasReportViewer;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer UsuariosReportViewer;
     }
 }

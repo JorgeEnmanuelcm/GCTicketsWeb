@@ -38,7 +38,7 @@
                             Consulta Usuarios
                             <br />
                         </a>
-                        <a href="#" class="btn btn-sq-lg btn-warning">
+                        <a href="/Reportes/UsuariosReporte.aspx" class="btn btn-sq-lg btn-warning">
                             <i class="fa fa-users fa-5x"></i>
                             <br />
                             Reporte Usuarios
@@ -71,7 +71,7 @@
                             <br />
                             Eventos
                         </a>
-                        <a href="#" class="btn btn-sq-lg btn-warning">
+                        <a href="/Reportes/TipoEvento.aspx" class="btn btn-sq-lg btn-warning">
                             <i class="fa fa-align-left fa-5x"></i>
                             <br />
                             Reporte Tipos de
@@ -103,7 +103,7 @@
                             Consulta Eventos
                             <br />
                         </a>
-                        <a href="#" class="btn btn-sq-lg btn-warning">
+                        <a href="/Reportes/EventosReporte.aspx" class="btn btn-sq-lg btn-warning">
                             <i class="fa fa-hand-peace-o fa-5x"></i>
                             <br />
                             Reporte Eventos
@@ -134,7 +134,7 @@
                             Consulta Ventas
                             <br />
                         </a>
-                        <a href="#" class="btn btn-sq-lg btn-warning">
+                        <a href="/Reportes/VentasReporte.aspx" class="btn btn-sq-lg btn-warning">
                             <i class="fa fa-money fa-5x"></i>
                             <br />
                             Reporte Ventas

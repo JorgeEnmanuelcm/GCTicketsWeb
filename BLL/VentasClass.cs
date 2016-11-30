@@ -138,5 +138,11 @@ namespace BLL
                 OrdenFinal = " Order by " + Orden;
             return Conexion.ObtenerDatos("Select " + Campos + "From Ventas where " + Condicion + " " + OrdenFinal);
         }
+
+        public static DataTable ListadoDt(string Condicion)
+        {
+            ConexionDB Conexion = new ConexionDB();
+            return Conexion.ObtenerDatos(string.Format("select * from Ventas where " + Condicion));
+        }
     }
 }

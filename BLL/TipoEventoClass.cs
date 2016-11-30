@@ -108,5 +108,11 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
+
+        public static DataTable ListadoDt(string Condicion)
+        {
+            ConexionDB Conexion = new ConexionDB();
+            return Conexion.ObtenerDatos(string.Format("select * from TipoEvento where " + Condicion));
+        }
     }
 }

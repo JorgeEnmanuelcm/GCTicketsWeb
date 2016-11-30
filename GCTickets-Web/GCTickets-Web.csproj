@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -96,6 +97,9 @@
     <Content Include="Registros\TipoEventoForm.aspx" />
     <Content Include="Registros\UsuariosForm.aspx" />
     <Content Include="Registros\VentasForm.aspx" />
+    <Content Include="Reportes\EventosReporte.aspx" />
+    <Content Include="Reportes\TipoEvento.aspx" />
+    <Content Include="Reportes\UsuariosReporte.aspx" />
     <Content Include="Reportes\VentasReporte.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -142,6 +146,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GCTicketsWebDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GCTicketsWebDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +194,27 @@
     <Compile Include="Registros\VentasForm.aspx.designer.cs">
       <DependentUpon>VentasForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\EventosReporte.aspx.cs">
+      <DependentUpon>EventosReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\EventosReporte.aspx.designer.cs">
+      <DependentUpon>EventosReporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\TipoEvento.aspx.cs">
+      <DependentUpon>TipoEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\TipoEvento.aspx.designer.cs">
+      <DependentUpon>TipoEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\UsuariosReporte.aspx.cs">
+      <DependentUpon>UsuariosReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\UsuariosReporte.aspx.designer.cs">
+      <DependentUpon>UsuariosReporte.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\VentasReporte.aspx.cs">
       <DependentUpon>VentasReporte.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +232,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
+    <Content Include="GCTicketsWebDBDataSet.xsc">
+      <DependentUpon>GCTicketsWebDBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="GCTicketsWebDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GCTicketsWebDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="GCTicketsWebDBDataSet.xss">
+      <DependentUpon>GCTicketsWebDBDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -209,7 +250,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\EventosReport.rdlc" />
+    <EmbeddedResource Include="Reportes\TipoEventoReport.rdlc" />
+    <EmbeddedResource Include="Reportes\UsuariosReport.rdlc" />
+    <EmbeddedResource Include="Reportes\VentasReport.rdlc" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{b3b27107-d044-4eb5-bfad-d06e843c679f}</Project>

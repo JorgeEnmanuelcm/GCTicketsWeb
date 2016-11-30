@@ -168,5 +168,11 @@ namespace BLL
             dt = Conexion.ObtenerDatos("select NombreEvento, Imagen, FechaEvento, LugarEvento from Eventos");
             return dt;
         }
+
+        public static DataTable ListadoDt(string Condicion)
+        {
+            ConexionDB Conexion = new ConexionDB();
+            return Conexion.ObtenerDatos(string.Format("select * from Eventos where " + Condicion));
+        }
     }
 }

@@ -9,13 +9,13 @@ using BLL;
 
 namespace GCTickets_Web.Reportes
 {
-    public partial class VentasReporte : System.Web.UI.Page
+    public partial class TipoEvento : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Reportes(VentasReportViewer);
+                Reportes(TipoEventoReportViewer);
             }
         }
 
@@ -23,8 +23,8 @@ namespace GCTickets_Web.Reportes
         {
             rv.LocalReport.DataSources.Clear();
             rv.ProcessingMode = ProcessingMode.Local;
-            rv.LocalReport.ReportPath = @"Reportes\VentasReport.rdlc";
-            ReportDataSource sourse = new ReportDataSource("VentasDataset", VentasClass.ListadoDt("1=1"));
+            rv.LocalReport.ReportPath = @"Reportes\TipoEventoReport.rdlc";
+            ReportDataSource sourse = new ReportDataSource("TipoEventoDataset", TipoEventoClass.ListadoDt("1=1"));
             rv.LocalReport.DataSources.Add(sourse);
             rv.LocalReport.Refresh();
         }
